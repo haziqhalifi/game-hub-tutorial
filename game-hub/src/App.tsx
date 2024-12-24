@@ -1,15 +1,25 @@
-import { useState } from 'react'
-import './App.css'
-import { Button } from '@chakra-ui/react'
+import "./App.css";
+import { Grid, GridItem, Stack } from "@chakra-ui/react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <Button onClick={() => setCount((count) => count + 1)}>count is: {count}</Button>
-    </>
-  )
+    <Grid
+      templateAreas={{
+        base: `"nav" "main"`,
+        lg: `"nav main" "aside main"`,
+      }}
+    >
+      <GridItem area="nav" bg="coral">
+        Nav
+      </GridItem>
+      <GridItem area="aside" bg="gold" display={{ base: "none", lg: "block" }}>
+        Aside
+      </GridItem>
+      <GridItem area="main" bg="dodgerblue">
+        Main
+      </GridItem>
+    </Grid>
+  );
 }
 
-export default App
+export default App;
